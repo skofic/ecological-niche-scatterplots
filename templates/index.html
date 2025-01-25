@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatterplot Visualization</title>
+    <script>
+        // Pass config from Flask to JavaScript
+        window.config = {{ config|tojson|safe }};
+    </script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Scatterplot Visualization</h1>
+        <div class="controls">
+            <div class="indicator-pairs-selector">
+                <label for="indicator-pairs-select">Select Indicators:</label>
+                <select id="indicator-pairs-select">
+                    <option value="">Loading indicators...</option>
+                </select>
+            </div>
+            <div class="species-selector">
+                <label for="species-select">Select Species:</label>
+                <select id="species-select">
+                    <option value="">Loading species...</option>
+                </select>
+            </div>
+            <div class="unit-selector">
+                <label for="unit-input">Conservation Unit:</label>
+                <div class="unit-input-group">
+                    <input type="text" id="unit-input" placeholder="Enter conservation unit (e.g., ITA00001)">
+                    <button id="update-unit">Update</button>
+                </div>
+            </div>
+        </div>
+        <div id="plot-container"></div>
+    </div>
+</body>
+</html>

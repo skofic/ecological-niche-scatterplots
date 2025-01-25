@@ -1,0 +1,39 @@
+{
+    "service": {
+        "host": "http://localhost:8529",
+        "database": "_db/EcologicalNiche/scat",
+        "endpoints": {
+            "grid": "data/grid",
+            "species": "data/species",
+            "units": "data/units",
+            "species_list": "info/stats"
+        }
+    },
+    "query_params": {
+        "common": {
+            "pair": "tas_pr",
+            "type": "low",
+            "limit": 100000
+        },
+        "grid": {
+            "count": false,
+            "format": "array",
+            "start": 0
+        },
+        "species": {
+            "count": false,
+            "species": true,
+            "format": "array",
+            "start": 0
+        },
+        "units": {
+            "count": false,
+            "number": true,
+            "format": "array",
+            "start": 0
+        },
+        "species_list": {
+            "domain": "species"
+        }
+    }
+}
